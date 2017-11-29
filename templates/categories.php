@@ -15,7 +15,7 @@
 
             //2.connect to the database
             require MYSQL;
-            var_dump($dbc);
+            //var_dump($dbc);
 
             //3. Get the total number of records in categories table
             $sql = 'SELECT COUNT(*) FROM categories';
@@ -34,10 +34,13 @@
 
             //var_dump($category_list);
             //start the list
-            echo "<ul>";
+            echo "<ul class='list-group'>";
+            echo '<li class="list-group-item active">Select a Category</li>';
             //7.  Loop the array and display in ul list
             foreach ($category_list as $row) {
-                echo "<li>" . $row['id'] . " - " . $row['category'] . "</li>";
+                echo "<li class='list-group-item'>
+                        <a href='articlesbycategory.php?id={$row['id']}'>{$row['category']}</a></li>";
+                        
             }
 
             //end list
